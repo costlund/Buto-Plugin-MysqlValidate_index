@@ -1,0 +1,29 @@
+db_get_index:
+  sql: |
+    SHOW INDEX FROM [table_name]
+    where 
+    Key_name=?
+  params:
+    -
+      type: s
+      value: rs:key_name
+  select:
+    - Table
+    - Non_unique
+    - Key_name
+    - Seq_in_index
+    - Column_name
+    - Collation
+    - Cardinality
+    - Sub_part
+    - Packed
+    - Null
+    - Index_type
+    - Comment
+    - Index_comment
+db_posts:
+  sql: |
+    select id FROM [table_name] where [Column_names]
+  select:
+    - id
+  params: {}
