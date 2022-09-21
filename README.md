@@ -35,3 +35,9 @@ items:
           key_name: people_name_city
           clean_up_key: id
 ```
+
+### clean_up_key
+This should be the form item that is the unique id in table people.
+
+### Known problems
+Dont miss to add proper data in form fields, often missed when to validate new posts.
