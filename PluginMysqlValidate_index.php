@@ -27,11 +27,8 @@ class PluginMysqlValidate_index{
       /**
        * 
        */
-      $sql = $this->getSql('db_get_index');
-      $sql->setByTag($data->get());
-      $sql->set('sql', str_replace('[table_name]', $data->get('table_name'), $sql->get('sql')));
-      $this->mysql->execute($sql->get());
-      $rs = $this->mysql->getMany();
+      $rs = $this->mysql->runSql("SHOW INDEX FROM ".$data->get('table_name')." where Key_name='".$data->get('key_name')."'");
+      $rs = $rs['data'];
       /**
        * 
        */
