@@ -8,7 +8,7 @@ class PluginMysqlValidate_index{
     wfPlugin::includeonce('wf/array');
     wfPlugin::includeonce('wf/mysql');
     $this->mysql = new PluginWfMysql();
-    $this->settings = wfPlugin::getPluginSettings('mysql/validate_date_span', true);
+    $this->settings = wfPlugin::getPluginSettings('mysql/validate_index', true);
     wfPlugin::includeonce('i18n/translate_v1');
     $this->i18n = new PluginI18nTranslate_v1();
     $this->i18n->setPath('/plugin/mysql/validate_index/i18n');
