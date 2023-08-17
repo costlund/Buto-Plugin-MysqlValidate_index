@@ -33,15 +33,15 @@ class PluginMysqlValidate_index{
        * 
        */
       $sql = $this->getSql('db_posts');
-      $sql->set('sql', str_replace('[table_name]', $data->get('table_name'), $sql->get('sql')));
+      $sql->set('sql', wfPhpfunc::str_replace('[table_name]', $data->get('table_name'), $sql->get('sql')));
       $Column_names = '';
       $params = array();
       foreach($rs as $v){
         $Column_names .= ' and '.$v['Column_name'].'=?';
         $params[] = array('type' => 's', 'value' => 'get:'.$v['Column_name']);
       }
-      $Column_names = substr($Column_names, 4);
-      $sql->set('sql', str_replace('[Column_names]', $Column_names, $sql->get('sql')));
+      $Column_names = wfPhpfunc::substr($Column_names, 4);
+      $sql->set('sql', wfPhpfunc::str_replace('[Column_names]', $Column_names, $sql->get('sql')));
       $sql->set('params', $params);
       $this->mysql->execute($sql->get());
       $rs = $this->mysql->getMany();
